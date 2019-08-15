@@ -1,4 +1,5 @@
 rootProject.name = 'gamers-dynamic'
 include 'gamers-dynamic-resource-server'
 include 'gamers-dynamic-rest'
+include 'gamers-dynamic-core'
 
