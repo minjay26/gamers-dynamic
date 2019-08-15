@@ -1,0 +1,8 @@
+server:
+  port: 2604
+
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: 123456

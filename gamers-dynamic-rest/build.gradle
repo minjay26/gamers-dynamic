@@ -1,0 +1,11 @@
+dependencies {
+
+    compile "org.springframework:spring-webmvc"
+    compile "com.fasterxml.jackson.core:jackson-databind"
+    compile "javax.servlet:javax.servlet-api"
+    compile "org.minjay.gamers:gamers-security:1.0.0"
+    //compile "org.springframework.security:spring-security-config"
+    compile "commons-beanutils:commons-beanutils"
+    compile "commons-validator:commons-validator:${commonsValidatorVersion}"
+    compile "com.fasterxml.jackson.datatype:jackson-datatype-hibernate5"
+}
