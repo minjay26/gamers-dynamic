@@ -1,6 +1,7 @@
-package org.minjay.gamers.dynamic.domain;
+package org.minjay.gamers.dynamic.data.domain;
 
-public class Dynamic extends AbstractEntityAuditable<Long>{
+public class Dynamic extends AbstractEntityAuditable<Long> {
+    private static final long serialVersionUID = 3455664427976266431L;
 
     private String content;
 

@@ -1,4 +1,4 @@
-package org.minjay.gamers.dynamic.domain;
+package org.minjay.gamers.dynamic.data.domain;
 
 import org.joda.time.DateTime;
 import org.springframework.data.annotation.CreatedDate;
@@ -6,12 +6,6 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import java.io.Serializable;
 
-/**
- * Interface for auditable entities. Allows storing and retrieving creation and modification information. The changing
- * instance (typically some user) is to be defined by a generics definition.
- *
- * @param <ID> the type of the audited type's identifier
- */
 public abstract class AbstractEntityAuditable<ID extends Serializable> extends AbstractEntity<ID> {
 
     private static final long serialVersionUID = 7479587631743834284L;

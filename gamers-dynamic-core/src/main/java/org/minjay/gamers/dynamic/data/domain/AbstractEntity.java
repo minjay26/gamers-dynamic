@@ -1,4 +1,4 @@
-package org.minjay.gamers.dynamic.domain;
+package org.minjay.gamers.dynamic.data.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.domain.Persistable;
