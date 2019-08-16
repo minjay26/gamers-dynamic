@@ -17,6 +17,16 @@ spring:
     port: 5672
     password: guest
     username: guest
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: localhost:9300
+  application:
+    name: dynamic-service
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
 
 security:
   oauth2:
@@ -24,9 +34,9 @@ security:
       jwt:
         key-value: 123456
 
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
-  config-location: classpath:mybatis-config.xml
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+#  config-location: classpath:mybatis-config.xml
 ---
 spring:
   profiles: mysql

@@ -1,8 +1,8 @@
 package org.minjay.gamers.dynamic.service;
 
-import org.minjay.gamers.dynamic.data.domain.Dynamic;
-import org.minjay.gamers.dynamic.data.mapper.DynamicMapper;
+import org.joda.time.DateTime;
 import org.minjay.gamers.dynamic.mq.MqConstants;
+import org.minjay.gamers.dynamic.service.model.DynamicDto;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
@@ -12,18 +12,15 @@ import org.springframework.stereotype.Service;
 public class DynamicServiceImpl implements DynamicService {
 
     @Autowired
-    private DynamicMapper dynamicMapper;
-    @Autowired
     private RabbitTemplate rabbitTemplate;
 
     @Override
-    public void create(Dynamic dynamic) {
-        dynamicMapper.save(dynamic);
+    public void create(DynamicDto dynamic) {
         sendToMq(dynamic);
     }
 
     @Async
-    public void sendToMq(Dynamic dynamic) {
+    public void sendToMq(DynamicDto dynamic) {
         rabbitTemplate.convertAndSend(MqConstants.DYNAMIC_CREATE_EXCHANGE, null, dynamic);
     }
 }
