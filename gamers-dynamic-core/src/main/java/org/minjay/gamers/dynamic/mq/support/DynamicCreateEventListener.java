@@ -9,6 +9,6 @@ public class DynamicCreateEventListener implements ApplicationListener<DynamicCr
 
     @Override
     public void onApplicationEvent(DynamicCreateEvent event) {
-        Dynamic dynamic = event.getDynamic();
+        Dynamic dynamic = (Dynamic) event.getSource();
     }
 }

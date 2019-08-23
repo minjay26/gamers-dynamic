@@ -21,12 +21,6 @@ spring:
     elasticsearch:
       cluster-name: elasticsearch
       cluster-nodes: localhost:9300
-  application:
-    name: dynamic-service
-  cloud:
-    nacos:
-      config:
-        server-addr: localhost:8848
 
 security:
   oauth2:

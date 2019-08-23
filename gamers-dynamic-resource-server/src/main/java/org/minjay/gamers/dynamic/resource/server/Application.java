@@ -1,7 +1,7 @@
 package org.minjay.gamers.dynamic.resource.server;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.minjay.gamers.dynamic.cloud.feign.AccountFeignClient;
+import org.minjay.gamers.dynamic.client.cloud.feign.AccountFeignClient;
 import org.minjay.gamers.dynamic.data.elasticsearch.repository.DynamicRepository;
 import org.minjay.gamers.dynamic.mq.RabbitConfig;
 import org.minjay.gamers.dynamic.service.DynamicService;

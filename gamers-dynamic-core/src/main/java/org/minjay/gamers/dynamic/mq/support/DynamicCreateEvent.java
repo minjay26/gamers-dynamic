@@ -5,14 +5,8 @@ import org.springframework.context.ApplicationEvent;
 
 public class DynamicCreateEvent extends ApplicationEvent {
 
-    private final Dynamic dynamic;
-
     public DynamicCreateEvent(Dynamic dynamic) {
-        super(null);
-        this.dynamic = dynamic;
+        super(dynamic);
     }
 
-    public Dynamic getDynamic() {
-        return dynamic;
-    }
 }
