@@ -1,6 +1,7 @@
 dependencies {
     compile project(':gamers-dynamic-client')
     compile "org.springframework:spring-aspects"
+    compile "org.springframework.data:spring-data-jpa"
     compile "org.springframework:spring-context-support"
     compile 'org.springframework.boot:spring-boot-starter-amqp'
     compile "org.springframework.data:spring-data-elasticsearch:3.1.10.RELEASE"
@@ -14,6 +15,6 @@ dependencies {
     compile "commons-validator:commons-validator:${commonsValidatorVersion}"
     compile "com.fasterxml.jackson.datatype:jackson-datatype-hibernate5"
     compile "org.springframework.data:spring-data-commons"
-    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '2.1.0'
+//    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '2.1.0'
     compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.4'
 }

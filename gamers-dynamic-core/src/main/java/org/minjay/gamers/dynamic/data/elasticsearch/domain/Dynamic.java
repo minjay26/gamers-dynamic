@@ -1,5 +1,6 @@
 package org.minjay.gamers.dynamic.data.elasticsearch.domain;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
@@ -32,6 +33,7 @@ public class Dynamic implements Serializable {
     @GeoPointField
     private GeoPoint location;
 
+    @Id
     public String getId() {
         return id;
     }
