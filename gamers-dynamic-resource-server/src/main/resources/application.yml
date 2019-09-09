@@ -37,6 +37,10 @@ security:
       jwt:
         key-value: 123456
 
+feign:
+  hystrix:
+    enabled: true
+
 #mybatis:
 #  mapper-locations: classpath:mapper/*.xml
 #  config-location: classpath:mybatis-config.xml

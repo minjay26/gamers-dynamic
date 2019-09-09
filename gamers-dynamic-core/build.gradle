@@ -5,6 +5,8 @@ dependencies {
     compile "org.springframework:spring-context-support"
     compile 'org.springframework.boot:spring-boot-starter-amqp'
     compile "org.springframework.data:spring-data-elasticsearch:3.1.10.RELEASE"
+    compile "org.hibernate:hibernate-validator"
+    compile "org.hibernate:hibernate-entitymanager"
     compile "org.springframework.security:spring-security-core"
     compile "joda-time:joda-time"
     compile "org.apache.commons:commons-collections4:${commonsCollection4Version}"

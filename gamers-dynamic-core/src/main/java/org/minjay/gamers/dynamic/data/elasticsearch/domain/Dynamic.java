@@ -1,12 +1,12 @@
 package org.minjay.gamers.dynamic.data.elasticsearch.domain;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import org.springframework.data.elasticsearch.annotations.GeoPointField;
 import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -27,6 +27,8 @@ public class Dynamic implements Serializable {
 
     @Field(type = FieldType.Keyword)
     private Long userId;
+    @Field(type = FieldType.Text)
+    private String username;
     @Field(type = FieldType.Ip)
     private String ip;
 
@@ -72,6 +74,14 @@ public class Dynamic implements Serializable {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getIp() {

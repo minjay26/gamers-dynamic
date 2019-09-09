@@ -3,6 +3,7 @@ package org.minjay.gamers.dynamic.data.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.domain.Persistable;
 
+import javax.persistence.Transient;
 import java.io.Serializable;
 
 /**
@@ -40,6 +41,7 @@ public abstract class AbstractEntity<ID extends Serializable> implements Persist
      *
      * @return if the object is new
      */
+    @Transient
     @JsonIgnore
     @Override
     public boolean isNew() {
