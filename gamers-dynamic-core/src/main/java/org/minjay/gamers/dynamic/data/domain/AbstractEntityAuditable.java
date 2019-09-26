@@ -10,27 +10,8 @@ public abstract class AbstractEntityAuditable<ID extends Serializable> extends A
 
     private static final long serialVersionUID = 7479587631743834284L;
 
-    private DateTime createdDate;
+
     private DateTime lastModifiedDate;
-
-    /**
-     * Returns the creation date of the entity.
-     *
-     * @return the createdDate
-     */
-    @CreatedDate
-    public DateTime getCreatedDate() {
-        return createdDate;
-    }
-
-    /**
-     * Sets the creation date of the entity.
-     *
-     * @param createdDate the creation date to set
-     */
-    public void setCreatedDate(final DateTime createdDate) {
-        this.createdDate = createdDate;
-    }
 
     /**
      * Returns the date of the last modification.

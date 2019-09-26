@@ -1,6 +1,8 @@
 package org.minjay.gamers.dynamic.data.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.joda.time.DateTime;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.domain.Persistable;
 
 import javax.persistence.Transient;
@@ -17,6 +19,7 @@ public abstract class AbstractEntity<ID extends Serializable> implements Persist
 
     protected ID id;
 
+    private DateTime createdDate;
     /**
      * Returns the id of the entity.
      *
@@ -34,6 +37,25 @@ public abstract class AbstractEntity<ID extends Serializable> implements Persist
      */
     public void setId(ID id) {
         this.id = id;
+    }
+
+    /**
+     * Returns the creation date of the entity.
+     *
+     * @return the createdDate
+     */
+    @CreatedDate
+    public DateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    /**
+     * Sets the creation date of the entity.
+     *
+     * @param createdDate the creation date to set
+     */
+    public void setCreatedDate(final DateTime createdDate) {
+        this.createdDate = createdDate;
     }
 
     /**

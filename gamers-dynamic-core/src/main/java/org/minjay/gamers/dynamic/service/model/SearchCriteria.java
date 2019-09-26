@@ -1,24 +1,26 @@
 package org.minjay.gamers.dynamic.service.model;
 
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
-import org.springframework.data.elasticsearch.core.geo.GeoPoint;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SearchCriteria {
 
-    private Long userId;
+    private List<Long> userIds = new ArrayList<>();
     private String keyword;
 
     private String searchType;
 
+    private boolean includeFocus = true;
+
     private Double lon;
     private Double lat;
 
-    public Long getUserId() {
-        return userId;
+    public List<Long> getUserIds() {
+        return userIds;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserIds(List<Long> userIds) {
+        this.userIds = userIds;
     }
 
     public String getKeyword() {
@@ -51,5 +53,13 @@ public class SearchCriteria {
 
     public void setLat(Double lat) {
         this.lat = lat;
+    }
+
+    public boolean isIncludeFocus() {
+        return includeFocus;
+    }
+
+    public void setIncludeFocus(boolean includeFocus) {
+        this.includeFocus = includeFocus;
     }
 }

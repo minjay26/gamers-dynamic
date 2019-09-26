@@ -9,6 +9,7 @@ import org.minjay.gamers.security.userdetails.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -25,18 +26,27 @@ public class DynamicController {
     @Autowired
     private DynamicService dynamicService;
 
+    @GetMapping
+    public ResponseEntity<Collection<Dynamic>> search(@ModelAttribute SearchCriteria criteria,
+                                                      @PageableDefault Pageable pageable,
+                                                      @AuthenticationPrincipal LoginUser loginUser) {
+        return ResponseEntity.ok(dynamicService.search(criteria, loginUser.getUserId(), pageable));
+    }
+
     @PostMapping
     public ResponseEntity<Void> create(@RequestBody @Validated DynamicDto dynamic, @AuthenticationPrincipal LoginUser loginUser,
                                        HttpServletRequest request) {
         dynamic.setUserId(loginUser.getUserId());
         dynamic.setUsername(loginUser.getUsername());
-        dynamic.setId(HttpUtils.getIpAddr(request));
+        dynamic.setIp(HttpUtils.getIpAddr(request));
         dynamicService.create(dynamic);
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping
-    public ResponseEntity<Collection<Dynamic>> search(@ModelAttribute SearchCriteria criteria, @PageableDefault Pageable pageable) {
-        return ResponseEntity.ok(dynamicService.search(criteria, pageable));
+    @PutMapping("/{id}/like")
+    public ResponseEntity<Void> like(@PathVariable("id") String dynamicId, @AuthenticationPrincipal LoginUser loginUser) {
+        dynamicService.like(dynamicId, loginUser.getUserId());
+        return ResponseEntity.ok().build();
     }
+
 }

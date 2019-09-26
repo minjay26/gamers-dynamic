@@ -3,8 +3,9 @@ dependencies {
     compile "org.springframework:spring-aspects"
     compile "org.springframework.data:spring-data-jpa"
     compile "org.springframework:spring-context-support"
-    compile 'org.springframework.boot:spring-boot-starter-amqp'
-    compile "org.springframework.data:spring-data-elasticsearch:3.1.10.RELEASE"
+    compile 'org.springframework.amqp:spring-amqp'
+    compile 'org.springframework.amqp:spring-rabbit'
+    compile "org.springframework.data:spring-data-elasticsearch"
     compile "org.hibernate:hibernate-validator"
     compile "org.hibernate:hibernate-entitymanager"
     compile "org.springframework.security:spring-security-core"

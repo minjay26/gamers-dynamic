@@ -16,7 +16,7 @@ public class Dynamic implements Serializable {
 
     @Field(type = FieldType.Keyword)
     private String id;
-    @Field(type = FieldType.Text)
+    @Field(type = FieldType.Text, analyzer = "ik_max_word", searchAnalyzer = "ik_max_word")
     private String content;
     @Field(type = FieldType.Integer)
     private int replyCount;

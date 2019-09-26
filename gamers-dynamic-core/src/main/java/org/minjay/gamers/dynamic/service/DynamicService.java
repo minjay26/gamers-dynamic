@@ -11,5 +11,8 @@ public interface DynamicService {
 
     void create(DynamicDto dynamic);
 
-    Collection<Dynamic> search(SearchCriteria searchCriteria, Pageable pageable);
+    void like(String dynamicId, Long userId);
+
+    Collection<Dynamic> search(SearchCriteria searchCriteria, Long userId, Pageable pageable);
+
 }

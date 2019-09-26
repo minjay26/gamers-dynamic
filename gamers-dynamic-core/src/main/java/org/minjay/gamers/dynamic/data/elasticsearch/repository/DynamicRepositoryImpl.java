@@ -9,6 +9,9 @@ import org.elasticsearch.index.query.GeoDistanceQueryBuilder;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightField;
+import org.elasticsearch.search.sort.FieldSortBuilder;
+import org.elasticsearch.search.sort.ScoreSortBuilder;
+import org.elasticsearch.search.sort.SortOrder;
 import org.minjay.gamers.dynamic.data.elasticsearch.domain.Dynamic;
 import org.minjay.gamers.dynamic.service.model.SearchCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +29,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.elasticsearch.index.query.QueryBuilders.fuzzyQuery;
-import static org.elasticsearch.index.query.QueryBuilders.termQuery;
+import static org.elasticsearch.index.query.QueryBuilders.termsQuery;
 
 public class DynamicRepositoryImpl implements DynamicRepositoryCustom {
 
@@ -36,8 +39,8 @@ public class DynamicRepositoryImpl implements DynamicRepositoryCustom {
     @Override
     public Collection<Dynamic> search(SearchCriteria criteria, Pageable pageable) {
         BoolQueryBuilder builder = new BoolQueryBuilder();
-        if (criteria.getUserId() != null) {
-            builder.must(termQuery("userId", criteria.getUserId()));
+        if (criteria.getUserIds() != null) {
+            builder.must(termsQuery("userId", criteria.getUserIds()));
         }
 
         if (StringUtils.isNotBlank(criteria.getKeyword())) {
@@ -61,6 +64,8 @@ public class DynamicRepositoryImpl implements DynamicRepositoryCustom {
         }
 
         SearchQuery searchQuery = new NativeSearchQueryBuilder()
+                .withSort(new ScoreSortBuilder())
+                .withSort(new FieldSortBuilder("createDate").order(SortOrder.DESC))
                 .withIndices("dynamic")
                 .withTypes("dynamic")
                 .withHighlightFields(new HighlightBuilder.Field("content"), new HighlightBuilder.Field("username"))
