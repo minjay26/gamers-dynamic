@@ -5,7 +5,9 @@ import java.util.Map;
 
 public interface AccountClient {
 
+    String getUsernameByUserId(Long userId);
+
     void publishCreateDynamicAction(Long userId);
 
-    List<Map<String,Object>> getFocus(Long userId);
+    List<Map<String, Object>> getFocus(Long userId);
 }

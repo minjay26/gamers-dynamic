@@ -24,6 +24,10 @@ public interface AccountFeignClient extends AccountClient {
     @GetMapping("/users/{id}/focus")
     List<Map<String, Object>> getFocus(@PathVariable("id") Long userId);
 
+    @Override
+    @GetMapping("/users/{id}/username")
+    String getUsernameByUserId(@PathVariable("id") Long userId);
+
     @Configuration
     class AccountFeignClientConfig {
         @Bean

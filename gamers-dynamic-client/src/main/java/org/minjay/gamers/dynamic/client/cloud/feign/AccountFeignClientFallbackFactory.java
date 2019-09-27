@@ -24,6 +24,11 @@ public class AccountFeignClientFallbackFactory implements FallbackFactory<Accoun
             public List<Map<String, Object>> getFocus(Long userId) {
                 return Collections.emptyList();
             }
+
+            @Override
+            public String getUsernameByUserId(Long userId) {
+                return "";
+            }
         };
     }
 }
